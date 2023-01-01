@@ -1,55 +1,70 @@
 <template>
-  <div class="bg-primary fit row justify-center" style="padding-top: 150px; padding-bottom: 150px" id="ambiente">
-    <div class="row items-center fit container justify-around">
-      <div class="text-weight-bolder full-width text-white text-h4 text-uppercase q-pa-md q-py-md">
-        Meio Ambiente
-      </div>
-      <div class="col-md-8 col-xs-12">
-        <q-list v-for="(item, i) in lista" :key="i" @click="setText(item)" style="max-width: 400px" >
-          <q-item clickable v-ripple>
-            <q-item-section class="text-h6" :class="itemText.label == item.label ? 'text-bold text-secondary': 'text-white' ">{{item.label}}</q-item-section>
-          </q-item>
-        </q-list>
-      </div>
-      <div class="col-md-4 col-xs-12 relative-position mobile-only">
+  <section>
+    <q-img
+      src="../assets/ambiente/meioambiente.webp"
+      :ratio="(16/4)"
+      width="100%"
+      spinner-color="primary"
+      spinner-size="82px"
+    />
+    <div class="bg-primary fit row justify-center" style="padding-bottom: 300px">
+      <div class="row items-center fit container justify-around">
+        <h1 class="text-weight-bolder full-width text-white text-uppercase q-pa-md q-py-md">
+          Meio Ambiente
+        </h1>
+        <div class="text-white q-pa-md q-py-md">
+          <p>A Alpha é uma empresa de Consultoria especialista em Meio Ambiente, possuimos profissionais como Engenheiros Ambientais e Biológos, todos devidamente credenciados e ativos no CREA e CRbio. Estamos prontos para lhe tender em suas demandas ambientais:</p>
+          <p>Realizamos assessoria para emissão todas as licenças ambientais, tanto no âmbito das secretarias municipais quanto no INEA, atuamos em todo o Estado do Rio de Janeiro.</p>
+          <p>Conte com a Alpha para: Cadastro Técnico Federal do IBAMA, Emissão ou renovação de Licença de Operação, Elaboração de PGRCC - Programa de Gerenciamento de Resíduo Sólido, Emissão de Outorga para poço arteziano, Realização de Auditoria Ambiental DZ 056, Elaboração de PRAD - Plano de Recuperação de Áreas Degradadas, Avaliação de Ruído Ambiental conforme CONAMA 001/90, LAIA - Levantamento de Aspectos e Impactos Ambientais e diversos outros serviços ambientais. Entre em contato conosco!</p>
 
-        <q-card class="z-top" style="width: 80vw; min-height: 300px">
+        </div>
+        <div class="col-md-8 col-xs-12">
+          <q-list v-for="(item, i) in lista" :key="i" @click="setText(item)" style="max-width: 400px" >
+            <q-item clickable v-ripple>
+              <q-item-section class="text-h6" :class="itemText.label == item.label ? 'text-bold text-secondary': 'text-white' ">{{item.label}}</q-item-section>
+            </q-item>
+          </q-list>
+        </div>
+        <div class="col-md-4 col-xs-12 relative-position mobile-only">
+
+          <q-card class="z-top" style="width: 80vw; min-height: 300px">
+            <q-img
+              :src="itemText.img"
+              :ratio="16/9"
+              width="80vw"
+              spinner-color="primary"
+              spinner-size="82px"
+            />
+            <q-card-section>
+              <div v-html="itemText.text"></div>
+            </q-card-section>
+          </q-card>
+        </div>
+        <div class="col-md-4 col-xs-12 relative-position mobile-hide">
           <q-img
-            :src="itemText.img"
-            :ratio="16/9"
-            width="80vw"
+            src="../assets/ambiente.jpg"
+            :ratio="12/14"
+            width="100vw"
+            class="bg_imagem"
             spinner-color="primary"
             spinner-size="82px"
           />
-          <q-card-section>
-            <div v-html="itemText.text"></div>
-          </q-card-section>
-        </q-card>
-      </div>
-      <div class="col-md-4 col-xs-12 relative-position mobile-hide">
-        <q-img
-          src="../assets/ambiente.jpg"
-          :ratio="12/14"
-          width="100vw"
-          class="bg_imagem"
-          spinner-color="primary"
-          spinner-size="82px"
-        />
-        <q-card class="z-top cardPosition" style="width: 500px; min-height: 300px">
-          <q-img
-            :src="itemText.img"
-            :ratio="16/9"
-            width="500px"
-            spinner-color="primary"
-            spinner-size="82px"
-          />
-          <q-card-section>
-            <div v-html="itemText.text"></div>
-          </q-card-section>
-        </q-card>
+          <q-card class="z-top cardPosition" style="width: 500px; min-height: 300px">
+            <q-img
+              :src="itemText.img"
+              :ratio="16/9"
+              width="500px"
+              spinner-color="primary"
+              spinner-size="82px"
+            />
+            <q-card-section>
+              <div v-html="itemText.text"></div>
+            </q-card-section>
+          </q-card>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup>

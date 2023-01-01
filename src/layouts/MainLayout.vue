@@ -1,8 +1,8 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header class="bg-black z-max mobile-hide">
+  <q-layout view="lHh Lpr lff">
+    <q-header class="bg-black z-max">
       <q-toolbar>
-        <div class="q-pa-md">
+        <div class="q-pa-md cursor-pointer" @click="setAncora('index')">
           <q-img
             src="../assets/logo_top.png"
             width="200px"
@@ -12,8 +12,8 @@
 
         </div>
         <q-space />
-
-        <q-list class="row items-center" >
+        <q-btn color="white" class="mobile-only" flat icon="menu" @click="(drawerLeft = !drawerLeft)" />
+        <q-list class="row items-center mobile-hide"  >
           <EssentialLink
             v-for="link in linksList"
             :key="link.title"
@@ -23,6 +23,43 @@
         </q-list>
       </q-toolbar>
     </q-header>
+
+    <q-drawer
+      v-model="drawerLeft"
+      bordered
+    >
+      <q-list >
+        <q-item-label
+          header
+        >
+          Menu
+        </q-item-label>
+
+        <EssentialLink
+          v-for="link in linksList"
+          :key="link.title"
+          v-bind="link"
+          @setAncora="setAncora"
+        />
+      </q-list>
+    </q-drawer>
+
+    <q-page-sticky position="bottom-right" class="z-top" :offset="[18, 18]">
+      <q-btn push round size="xl" color="positive" @click="sendWhatsapp()">
+        <q-img
+          src="../assets/whatsapp.png"
+          :ratio="1"
+          width="30px"
+          spinner-color="primary"
+          spinner-size="82px"
+        />
+      </q-btn>
+    </q-page-sticky>
+
+    <q-footer>
+      <Clientes />
+      <Footer />
+    </q-footer>
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -31,7 +68,11 @@
 
 <script setup>
 import EssentialLink from '../components/EssentialLink.vue'
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
+import Footer from '../components/Footer.vue';
+import Clientes from '../components/Clientes.vue';
+import { openURL } from 'quasar'
 
 const linksList = reactive([
   {
@@ -39,31 +80,52 @@ const linksList = reactive([
     link: 'empresa'
   },
   {
-    title: 'Treinamento',
+    title: 'Treinamentos',
     link: 'treinamento'
   },
   {
-    title: 'Serviços',
-    link: 'servicos'
+    title: 'Segurança do trabalho',
+    link: 'seguranca-trabalho'
   },
   {
     title: 'Meio Ambiente',
-    link: 'ambiente'
+    link: 'meio-ambiente'
   },
   {
     title: 'Qualidade',
     link: 'qualidade'
   },
+  {
+    title: 'Contatos',
+    link: 'contatos'
+  },
 ])
+const router = useRouter()
+const route = useRoute()
+
+let drawerLeft = ref(false)
+
 
 function setAncora(item) {
-  console.log('ancora', item)
+  drawerLeft.value = false
 
-  setTimeout(() => {
-    var scrollDiv = document.getElementById(`${item}`).offsetTop
-    window.scrollTo({ top: scrollDiv, behavior: 'smooth' });
-  }, 100)
+  if(item == 'seguranca-trabalho' || item == 'meio-ambiente' || item == 'qualidade' || item == 'contatos') {
+    router.push({name: item})
+  } else {
+    let contexIndex = route.name == 'index' ? true:false
+    if(!contexIndex) {
+      router.push({name: 'index'})
+    }
+
+    setTimeout(() => {
+      var scrollDiv = document.getElementById(`${item}`).offsetTop
+      window.scrollTo({ top: scrollDiv, behavior: 'smooth' });
+    }, 500)
+  }
 }
 
-
+function sendWhatsapp() {
+  let url = 'https://api.whatsapp.com/send?phone=5521972640515'
+  openURL(url)
+}
 </script>

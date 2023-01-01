@@ -10,7 +10,7 @@
       >
           <q-carousel-slide class="dimmed" v-for="(item, i) in banner" :key="i" :name="i" :img-src="item.img" >
             <div class="column fit flex flex-center text-white text-uppercase" >
-              <div class="z-top container">
+              <div class="container" style="z-index:1">
                 <h2 class="text-left text-weight-bolder q-ma-none mobile-hide">{{item.title}}</h2>
                 <h3 class="text-left text-weight-bolder q-ma-none mobile-only">{{item.title}}</h3>
                 <h4 class="text-left q-pa-none q-ma-none mobile-hide">{{item.descricao}}</h4>
@@ -47,7 +47,7 @@ let banner = ref([
   },
   {
     img: imagem2,
-    title: 'Segurança do trabalho',
+    title: 'Segurança do Trabalho',
     descricao: 'Consultoria em Segurança no Trabalho, Meio Ambiente e Qualidade'
   },
   {

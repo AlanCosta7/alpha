@@ -1,6 +1,7 @@
 <template>
   <q-item
     clickable
+    v-ripple
     @click="ancora(link)"
   >
     <q-item-section>

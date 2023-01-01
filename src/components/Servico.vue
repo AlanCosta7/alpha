@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-grey-2 fit row justify-center" style="padding-top: 150px; padding-bottom: 150px" id="servicos">
+  <div class="bg-grey-2 fit row justify-center" style="padding-top: 50px; padding-bottom: 150px" id="servicos">
     <div class="">
       <div class="text-weight-bolder text-h4 text-uppercase q-pa-md q-py-md">
         Serviços
