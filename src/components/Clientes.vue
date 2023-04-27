@@ -13,7 +13,20 @@
       </template>
     </q-list>
     <div v-if="!indexContatos" class="row justify-center q-ma-xl">
-      <q-btn color="positive" rounded icon="phone" label="Fale conosco" @click="faleconoso()" />
+      <q-btn color="positive" rounded @click="faleconoso('zap')" >
+        <div class="row items-center justify-around q-gutter-md">
+          <q-img
+            src="../assets/whatsapp.png"
+            :ratio="1"
+            width="20px"
+            spinner-color="primary"
+            spinner-size="82px"
+          />
+          <div>
+            Fale conosco
+          </div>
+        </div>
+      </q-btn>
     </div>
   </div>
 </template>

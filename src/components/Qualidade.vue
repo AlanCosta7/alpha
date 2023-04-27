@@ -14,7 +14,20 @@
           Realizamos também auditorias internas nas empresas já certificadas.
         </p>
         <div class="q-my-xl q-gutter-md">
-          <q-btn color="positive" rounded icon="phone" label="Entre em contato conosco!" @click="faleconoso('zap')" />
+          <q-btn color="positive" rounded @click="faleconoso('zap')" >
+            <div class="row items-center justify-around q-gutter-md">
+              <q-img
+                src="../assets/whatsapp.png"
+                :ratio="1"
+                width="20px"
+                spinner-color="primary"
+                spinner-size="82px"
+              />
+              <div>
+                Entre em contato conosco!
+              </div>
+            </div>
+          </q-btn>
           <q-btn color="positive" rounded icon="email" label="Email" @click="faleconoso('email')" />
         </div>
       </div>

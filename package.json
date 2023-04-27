@@ -9,7 +9,7 @@
     "start": "quasar dev",
     "start:pwa": "quasar dev -m pwa",
     "build:pwa": "quasar build -m pwa",
-    "hosting": "firebase deploy --only hosting",
+    "hosting": "firebase deploy --only hosting:alphaehs-ca5c2",
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {

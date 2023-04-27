@@ -19,6 +19,8 @@
             :key="link.title"
             v-bind="link"
             @setAncora="setAncora"
+            @setSelect="setSelect"
+            :select="select"
           />
         </q-list>
       </q-toolbar>
@@ -40,6 +42,8 @@
           :key="link.title"
           v-bind="link"
           @setAncora="setAncora"
+          @setSelect="setSelect"
+          :select="select"
         />
       </q-list>
     </q-drawer>
@@ -104,7 +108,11 @@ const router = useRouter()
 const route = useRoute()
 
 let drawerLeft = ref(false)
+let select = ref(null)
 
+function setSelect(item) {
+  select.value = item
+}
 
 function setAncora(item) {
   drawerLeft.value = false

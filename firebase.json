@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "alpha-consultoria-seguranca",
+    "site": "alphaehs-ca5c2",
     "public": "dist/pwa",
     "ignore": [
       "firebase.json",

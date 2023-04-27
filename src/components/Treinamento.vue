@@ -20,7 +20,7 @@
       >
         <q-carousel-slide :name="i+1" v-for="(item, i) in numberLista" :key="i" class="column no-wrap ">
           <q-list class="row fit justify-start items-center q-gutter-xs no-wrap">
-            <template v-for="(opc, ind) in itemLista" :key="ind" class="" >
+            <template v-for="(opc, ind) in itemLista" :key="ind"  >
               <q-card class="q-ma-sm" style="width: 100vw; max-width: 300px; height: 400px" @click="setSelectTreinamento(opc)">
                 <q-img height="250px" :src="opc.img" />
                 <q-card class="borda bg-white q-pa-md" style="width: 100vw; max-width: 300px; border-radius: 30px 30px 0 0">
@@ -49,7 +49,20 @@
             <div v-html="selectTreinamento.descricao" ></div>
           </q-card-section>
           <q-card-actions align="right">
-            <q-btn color="positive" class="q-px-md" rounded icon="phone" label="Fale conosco" @click="faleconoso" />
+            <q-btn color="positive" rounded @click="faleconoso('zap')" >
+              <div class="row items-center justify-around q-gutter-md">
+                <q-img
+                  src="../assets/whatsapp.png"
+                  :ratio="1"
+                  width="20px"
+                  spinner-color="primary"
+                  spinner-size="82px"
+                />
+                <div>
+                  Entre em contato conosco!
+                </div>
+              </div>
+            </q-btn>
             <q-btn flat label="Fechar" color="primary" v-close-popup />
           </q-card-actions>
         </q-card>
