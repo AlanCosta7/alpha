@@ -91,7 +91,11 @@
 <script setup>
 import Form from '../components/Form.vue'
 import { ref } from 'vue'
+import { openURL } from "quasar"
 
+function onOpen(item) {
+  openURL(item)
+}
 
 </script>
 
