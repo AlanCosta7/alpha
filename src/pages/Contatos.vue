@@ -20,7 +20,7 @@
                   Alpha consultoria
                 </div>
                 <div class="text-secondary text-weight-light text-white text-uppercase	">
-                  Email:contato@alphaehs.com.br
+                  Email:comercial@alphaehs.com.br
                 </div>
                 <div class="text-weight-light text-white text-uppercase	">
                   Telefone e WhatsApp<br>
@@ -63,7 +63,7 @@
                   />
                   <span class="q-px-md text-caption">/company/alpha-consultoria-em-ehs</span>
                 </q-btn>
-                <q-btn flat @click="onOpen('https://api.whatsapp.com/send?phone=5521972640515')" >
+                <q-btn flat @click="onOpen('https://api.whatsapp.com/send?phone=5521995459445')" >
                     <q-img
                       src="../assets/whatsapp.png "
                       :ratio="1"
@@ -71,10 +71,10 @@
                       spinner-color="primary"
                       spinner-size="82px"
                     />
-                  <span class="q-px-md">(21) 97264-0515</span>
+                  <span class="q-px-md">(21) 99545-9445</span>
                 </q-btn>
-                <q-btn flat icon="email" size="lg" outline color="white" @click="onOpen('mailto:contato@alphaehs.com.br')" >
-                  <span class="q-px-md text-caption">contato@alphaehs.com.br</span>
+                <q-btn flat icon="email" size="lg" outline color="white" @click="onOpen('mailto:comercial@alphaehs.com.br')" >
+                  <span class="q-px-md text-caption">comercial@alphaehs.com.br</span>
                 </q-btn>
               </div>
             </div>

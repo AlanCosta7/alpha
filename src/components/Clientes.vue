@@ -41,6 +41,7 @@ import img5 from '../assets/clientes/5.png'
 import img6 from '../assets/clientes/6.png'
 import img7 from '../assets/clientes/7.png'
 import img8 from '../assets/clientes/8.png'
+import { openURL } from "quasar"
 
 import { useRouter, useRoute } from 'vue-router'
 const router = useRouter()
@@ -50,8 +51,13 @@ const indexContatos = computed(() => route.name == 'contatos')
 
 let lista = ref([img1, img2, img3, img4, img5, img6, img7, img8])
 
-function faleconoso() {
-  router.push({name: 'contatos'})
+function faleconoso(item) {
+  if(item == 'zap') {
+    let tel = '21995459445'
+    openURL(`https://api.whatsapp.com/send?phone=55${tel}`);
+  } else {
+    openURL('mailto:comercial@alphaehs.com.br')
+  }
 }
 </script>
 

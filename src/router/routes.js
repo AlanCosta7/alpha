@@ -8,7 +8,8 @@ const routes = [
       { path: 'seguranca-trabalho', name: "seguranca-trabalho", component: () => import('pages/SegurancaTrabalho.vue') },
       { path: 'meio-ambiente', name: "meio-ambiente", component: () => import('components/Ambiente.vue') },
       { path: 'qualidade', name: "qualidade", component: () => import('pages/Qualidade.vue') },
-      { path: 'contatos', name: "contatos", component: () => import('pages/Contatos.vue') }
+      { path: 'contatos', name: "contatos", component: () => import('pages/Contatos.vue') },
+      { path: 'ebook/pgr', name: "pgr", component: () => import('pages/LandPage_PGR.vue') },
     ]
   },
 

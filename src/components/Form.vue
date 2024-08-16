@@ -30,20 +30,10 @@
 
 <script setup>
 import { ref, computed } from "vue";
-import axios from 'axios'
-import { Notify } from "quasar";
+import { openURL } from "quasar";
 
 const props = defineProps(['dark'])
 let dark = computed(() => props.dark)
-let url = ref('https://southamerica-east1-alphaehs-api.cloudfunctions.net/sendEmail')
-
-
-let form = ref({
-  name: null,
-  tel: null,
-  email: null,
-  msg: null,
-})
 
 let validarForm = computed(() => {
   if (form.value.name && form.value.tel && form.value.email && form.value.msg) {
@@ -53,50 +43,39 @@ let validarForm = computed(() => {
   }
 })
 
-function onSubmit() {
-  axios({
-    method: "POST",
-    url: url.value,
-    data: form.value,
-  }).then((result) => {
-    Notify.create({
-      type: 'positive',
-      message: 'Mensagem enviada com sucesso',
-      timeout: 2000,
-    })
-    form.value = {
-      name: null,
-      tel: null,
-      email: null,
-      msg: null,
-    }
-  }).catch((err) => {
-    Notify.create({
-      type: 'negative',
-      message: 'Erro ao enviar Mensagem',
-      timeout: 2000,
-    })
+let form = ref({
+  name: '',
+  subject: '',
+  tel: '',
+  email: '',
+  msg: '',
+  text: '',
+  html: '',
+})
 
-    form.value = {
-      name: null,
-      tel: null,
-      email: null,
-      msg: null,
-    }
-  })
+async function onSubmit() {
+  form.value.text = `Name: ${form.value.name},\n Tel: ${form.value.tel},\n Email: ${form.value.email},\n Mensagem: ${form.value.msg}`
+  var texto = window.encodeURIComponent(form.value.text);
 
+  sendWhatsapp(texto)
 
 }
 
 function onReset() {
   form.value = {
     name: '',
+    subject: '',
     tel: '',
     email: '',
-    msg: '',
+    text: '',
+    html: '',
   }
 }
 
+function sendWhatsapp(text) {
+  let url = `https://api.whatsapp.com/send?phone=5521995459445&text=${text}`
+  openURL(url)
+}
 </script>
 
 <style>

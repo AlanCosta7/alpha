@@ -1,16 +1,23 @@
 <template>
-  <div class="q-pa-xl bg-grey-8 row fit items-center">
+  <div class="q-pa-xl row fit items-center">
     <div class="col-xs-12 col-sm-8 col-lg-9 q-gutter-md">
       <div class="text-weight-bolder text-white text-h4">
-        Alpha consultoria
+        <div>
+          <q-img
+            src="../assets/LandPage_PGR/logo.png"
+            width="150px"
+            spinner-color="primary"
+            spinner-size="82px"
+          />
+        </div>
       </div>
       <div class="text-secondary text-weight-light text-white text-uppercase	">
-        Email:contato@alphaehs.com.br
+        Email: comercial@alphaehs.com.br
       </div>
       <div class="text-weight-light text-white text-uppercase	">
         Telefone e WhatsApp<br>
         (21) 97264-0515 <br>
-        (21) 96655-5161
+        (21) 99545-9445
       </div>
     </div>
     <div class="col-xs-12 col-sm-4 col-lg-3 q-gutter-md q-mt-xl ">
@@ -41,7 +48,7 @@
           spinner-size="82px"
         />
       </q-btn>
-      <q-btn round flat @click="onOpen('https://api.whatsapp.com/send?phone=5521972640515')" >
+      <q-btn round flat @click="onOpen('https://api.whatsapp.com/send?phone=5521995459445')" >
           <q-img
             src="../assets/whatsapp.png "
             :ratio="1"
@@ -50,7 +57,7 @@
             spinner-size="82px"
           />
       </q-btn>
-      <q-btn round icon="email" outline color="white" @click="onOpen('mailto:contato@alphaehs.com.br')" >
+      <q-btn round icon="email" outline color="white" @click="onOpen('mailto:comercial@alphaehs.com.br')" >
       </q-btn>
     </div>
   </div>

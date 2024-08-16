@@ -7,7 +7,10 @@
 // https://quasar.dev/quasar-cli/quasar-conf-js
 
 const { configure } = require('quasar/wrappers');
-
+const env = require('dotenv').config({
+  path: './.env'
+  // path: './.env.esp'
+}).parsed
 module.exports = configure(function (ctx) {
   return {
     // https://quasar.dev/quasar-cli/supporting-ts
@@ -20,6 +23,7 @@ module.exports = configure(function (ctx) {
     // --> boot files are part of "main.js"
     // https://quasar.dev/quasar-cli/boot-files
     boot: [
+      'firebase'
     ],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
@@ -43,6 +47,7 @@ module.exports = configure(function (ctx) {
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {
+      env: env,
       vueRouterMode: 'history', // available values: 'hash', 'history'
 
       // transpile: false,
@@ -74,14 +79,14 @@ module.exports = configure(function (ctx) {
       server: {
         type: 'http'
       },
-      port: 8080,
+      port: ctx.mode.ssr ? 9100 : 8080,
       open: true // opens browser window automatically
     },
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-framework
     framework: {
       iconSet: 'material-icons', // Quasar icon set
-      lang: 'pt-br', // Quasar language pack
+      lang: 'pt-BR', // Quasar language pack
       config: {
         notify: { /* look at QUASARCONFOPTIONS from the API card (bottom of page) */ }
       },

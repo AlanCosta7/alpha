@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lff">
-    <q-header class="bg-black z-max">
+    <q-header class="bg-black z-max" v-if="indexHome">
       <q-toolbar>
         <div class="q-pa-md cursor-pointer" @click="setAncora('index')">
           <q-img
@@ -48,7 +48,7 @@
       </q-list>
     </q-drawer>
 
-    <q-page-sticky position="bottom-right" class="z-top" :offset="[18, 18]">
+    <q-page-sticky v-if="indexHome" position="bottom-right" class="z-top" :offset="[18, 18]">
       <q-btn push round size="xl" color="positive" @click="sendWhatsapp()">
         <q-img
           src="../assets/whatsapp.png"
@@ -60,9 +60,9 @@
       </q-btn>
     </q-page-sticky>
 
-    <q-footer>
-      <Clientes />
-      <Footer />
+    <q-footer style="background: #323232">
+      <Clientes v-if="indexHome" />
+      <Footer style="background: #323232" />
     </q-footer>
     <q-page-container>
       <router-view />
@@ -72,7 +72,7 @@
 
 <script setup>
 import EssentialLink from '../components/EssentialLink.vue'
-import { reactive, ref } from 'vue'
+import { reactive, ref, computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import Footer from '../components/Footer.vue';
 import Clientes from '../components/Clientes.vue';
@@ -107,6 +107,8 @@ const linksList = reactive([
 const router = useRouter()
 const route = useRoute()
 
+let indexHome = computed(v => route.name == 'index' )
+
 let drawerLeft = ref(false)
 let select = ref(null)
 
@@ -133,7 +135,7 @@ function setAncora(item) {
 }
 
 function sendWhatsapp() {
-  let url = 'https://api.whatsapp.com/send?phone=5521972640515'
+  let url = 'https://api.whatsapp.com/send?phone=5521995459445'
   openURL(url)
 }
 </script>

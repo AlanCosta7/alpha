@@ -50,10 +50,10 @@ import { openURL } from 'quasar'
 
 function faleconoso(item) {
   if(item == 'zap') {
-    let tel = '21972640515'
+    let tel = '21995459445'
     openURL(`https://api.whatsapp.com/send?phone=55${tel}`);
   } else {
-    openURL('mailto:contato@alphaehs.com.br')
+    openURL('mailto:comercial@alphaehs.com.br')
   }
 }
 </script>
